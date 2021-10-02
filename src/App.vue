@@ -1,28 +1,66 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar app light>
+      <router-link to="/"><img src="https://i.ibb.co/fN1Tdsg/Joe-Smack2.jpg" id="logo"></router-link>
+      <v-btn to="/recettes-list/entree" dark>Entree</v-btn>
+      <v-btn to="/recettes-list/plat" dark>Plat</v-btn>
+      <v-btn to="/recettes-list/patisserie" dark>Patisserie</v-btn>
+      <v-btn to="/recettes-list/all" dark>A-Z</v-btn>
+      <v-btn to="/recette-create" dark width="1%"><v-icon>mdi-comment-plus-outline</v-icon></v-btn>
+    </v-app-bar>
+
+    <v-main id='v-main' :style="bgImage">
+      <v-container>
+        <router-view />
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
 
+<script>
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      bgImage: {}
+    }
+  },
+
+  created(){
+    this.setBackground();
+  },
+
+  beforeUpdate(){
+    this.setBackground();
+  },
+
+  methods: {
+    setBackground(){
+      if(window.screen.width < 600){
+        switch (this.$route.params.type) {
+          case "entree": this.bgImage = { backgroundImage: "url(https://i.ibb.co/SX6yFjn/entree-Phone.jpg)" }; break;
+          case "plat": this.bgImage = { backgroundImage: "url(https://i.ibb.co/YBzHcdr/plat-Phone.jpg)" }; break;
+          case "patisserie": this.bgImage = { backgroundImage: "url(https://i.ibb.co/prdFvDG/patisserie-Phone.jpg)" }; break;
+          default: this.bgImage = { backgroundImage: "url(https://i.ibb.co/SRD5xsS/food-Phone.jpg)" }; break;
+        }
+      } else {
+        switch (this.$route.params.type) {
+          case "entree": this.bgImage = { backgroundImage: "url(https://i.ibb.co/SmX65RN/entree.jpg)" }; break;
+          case "plat": this.bgImage = { backgroundImage: "url(https://i.ibb.co/nfRxZL9/plat.jpg)" }; break;
+          case "patisserie": this.bgImage = { backgroundImage: "url(https://i.ibb.co/qW7StB9/patisserie.jpg)" }; break;
+          default: this.bgImage = { backgroundImage: "url(https://i.ibb.co/t2Kr76d/restaurant.jpg)" }; break;
+        }
+      }
+    },
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+  .v-main{ background-size: 100% 720px; background-repeat: repeat-y; }
+  .v-btn{
+    margin-left: 0.4%;
+    width: 19%;
+  }
+  #logo{ width: 100%; height: 50px; }
 </style>
