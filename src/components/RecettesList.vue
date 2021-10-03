@@ -56,14 +56,14 @@
     margin: 1%;
     padding: 3%;
     border: 1px solid;
-    width: 60%;
-    margin-left: 20%;
+    width: 70%;
+    margin-left: 15%;
     height: 400px;
   }
 
   img{
     height: 280px;
-    width: 350px;
+    width: 60%;
   }
 
   @media screen and (max-width: 960px) {
@@ -73,7 +73,7 @@
 
     img{ 
       height: 190px; 
-      width: 260px;
+      width: 90%;
     }
   }
 </style>
