@@ -17,7 +17,6 @@
   </v-app>
 </template>
 
-
 <script>
 export default {
   data() {
@@ -38,9 +37,9 @@ export default {
     setBackground(){
       if(window.screen.width < 600){
         switch (this.$route.params.type) {
-          case "entree": this.bgImage = { backgroundImage: "url(https://i.ibb.co/SX6yFjn/entree-Phone.jpg)" }; break;
-          case "plat": this.bgImage = { backgroundImage: "url(https://i.ibb.co/YBzHcdr/plat-Phone.jpg)" }; break;
-          case "patisserie": this.bgImage = { backgroundImage: "url(https://i.ibb.co/prdFvDG/patisserie-Phone.jpg)" }; break;
+          case "entree": this.bgImage = { backgroundImage: "url(https://i.ibb.co/tDpG2tk/entree-Phone.jpg)" }; break;
+          case "plat": this.bgImage = { backgroundImage: "url(https://i.ibb.co/LrG9BzT/plat-Phone.jpg)" }; break;
+          case "patisserie": this.bgImage = { backgroundImage: "url(https://i.ibb.co/5FZ1RdF/patisserie-Phone.jpg)" }; break;
           default: this.bgImage = { backgroundImage: "url(https://i.ibb.co/SRD5xsS/food-Phone.jpg)" }; break;
         }
       } else {
@@ -48,7 +47,7 @@ export default {
           case "entree": this.bgImage = { backgroundImage: "url(https://i.ibb.co/SmX65RN/entree.jpg)" }; break;
           case "plat": this.bgImage = { backgroundImage: "url(https://i.ibb.co/nfRxZL9/plat.jpg)" }; break;
           case "patisserie": this.bgImage = { backgroundImage: "url(https://i.ibb.co/qW7StB9/patisserie.jpg)" }; break;
-          default: this.bgImage = { backgroundImage: "url(https://i.ibb.co/t2Kr76d/restaurant.jpg)" }; break;
+          default: this.bgImage = { backgroundImage: "url(https://i.ibb.co/LnDRNsm/aliments.jpg)" }; break;
         }
       }
     },
