@@ -6,7 +6,7 @@
   <div class="d-flex justify-content-center">
     <div>
       <h2> {{ recette.title }} </h2><br>
-      <img :src="API+'img/'+recette.imgName" height="460px" width="930px"> <br><br><br>
+      <img :src="API+'/img/'+recette.imgName" height="460px" width="930px"> <br><br><br>
       <strong> Type: </strong> {{ recette.type }}  <br>
       <strong> Prix: </strong> {{ recette.prix }}€ <br>
       <strong> Ingrédients: </strong>              
