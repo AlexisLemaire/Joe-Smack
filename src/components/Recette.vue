@@ -47,8 +47,9 @@
   }
 
   img {
+    margin-left: 10%;
     height: 460px;
-    width: 650px;
+    width: 80%;
   }
 
   h2 { text-align: center; }
@@ -61,8 +62,7 @@
     }
 
     img { 
-      height: 180px; 
-      width: 250px; 
+      height: 300px; 
     }
   }
 </style>
