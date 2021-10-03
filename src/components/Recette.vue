@@ -5,8 +5,8 @@
 
   <div class="d-flex justify-content-center">
     <div>
-      <h2> {{ recette.title }} </h2><br>
-      <img :src="API+'/img/'+recette.imgName" height="460px" width="930px"> <br><br><br>
+      <h2> {{ recette.title }} </h2>
+      <img :src="API+'/img/'+recette.imgName"> <br><br><br>
       <strong> Type: </strong> {{ recette.type }}  <br>
       <strong> Prix: </strong> {{ recette.prix }}€ <br>
       <strong> Ingrédients: </strong>              
@@ -46,15 +46,23 @@
     margin-top: 1%;
   }
 
-  h2{ text-align: center; }
+  img {
+    height: 460px;
+    width: 650px;
+  }
+
+  h2 { text-align: center; }
 
   @media screen and (max-width: 960px) {
-    .rc-item{
+    .rc-item {
       width: 94%;
       margin-left: 3%;
       padding: 10%;
     }
 
-    img{ height: 180px; width: 300px; }
+    img { 
+      height: 180px; 
+      width: 250px; 
+    }
   }
 </style>
