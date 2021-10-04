@@ -5,11 +5,14 @@
 		<v-text-field label='Titre' v-model='body.title' required :rules="requiredRules" />
 		<v-select label='Type' v-model='body.type' outlined :items="items" required :rules="requiredRules" />
 		<v-text-field label='Prix' type='number' v-model='body.prix' required :rules="requiredRules" />
+		<v-text-field label='Temps de préparation (en minutes)' type='number' v-model='body.prepDuration' required :rules="requiredRules" />
+    <v-text-field label='Nombre de personnes' type='number' v-model='body.nbPersonnes' required :rules="requiredRules" />
 
 		<v-text-field label='Ingredients' v-model='ingredient' append-icon="mdi-flask-empty-plus-outline" @click:append="setIngredient(ingredient)" />
 		<span v-for="(ing,index) in body.ingredients" :key="index"> 
 			{{ ing }} <v-icon @click="setIngredient(ing)">mdi-flask-empty-remove-outline</v-icon> 
 		</span>
+    <br />
 
 		<v-file-input label='Illustration' v-model='body.file' /><br>
 
@@ -77,7 +80,7 @@
 		background-color: white;
 		border: solid 1px;
 		padding: 5%;
-		border-radius: 20%;
+		border-radius: 10%;
 		text-align: center;
 	}
 

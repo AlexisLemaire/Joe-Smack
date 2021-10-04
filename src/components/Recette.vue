@@ -9,6 +9,8 @@
       <img :src="API+'/img/'+recette.imgName"> <br><br><br>
       <strong> Type: </strong> {{ recette.type }}  <br>
       <strong> Prix: </strong> {{ recette.prix }}€ <br>
+      <strong> Temps de préparation: </strong> {{ recette.prepDuration }} minutes <br>
+      <strong> Nombre de personnes: </strong> {{ recette.nbPersonnes }} <br>
       <strong> Ingrédients: </strong>              
       <span v-for="(ingredient,index) in recette.ingredients" :key="index"> {{ ingredient }} ,</span> <br><br><br>
 

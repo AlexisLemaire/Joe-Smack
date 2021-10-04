@@ -4,7 +4,8 @@
       <router-link to="/"><img src="https://i.ibb.co/fN1Tdsg/Joe-Smack2.jpg" id="logo"></router-link>
       <v-btn to="/recettes-list/entree" dark>Entree</v-btn>
       <v-btn to="/recettes-list/plat" dark>Plat</v-btn>
-      <v-btn to="/recettes-list/patisserie" dark>Patisserie</v-btn>
+      <v-btn to="/recettes-list/patisserie" dark class="hidden-sm-and-down">Patisserie</v-btn>
+      <v-btn to="/recettes-list/patisserie" dark class="hidden-md-and-up">Pat</v-btn>
       <v-btn to="/recettes-list/all" dark>A-Z</v-btn>
       <v-btn to="/recette-create" dark width="1%"><v-icon>mdi-comment-plus-outline</v-icon></v-btn>
     </v-app-bar>
@@ -61,5 +62,20 @@ export default {
     margin-left: 0.4%;
     width: 19%;
   }
-  #logo{ width: 100%; height: 50px; }
+  #logo{ 
+    width: 100%; 
+    height: 50px; 
+  }
+
+  @media screen and (max-width: 660px) {
+    .v-btn{
+      margin-left: 0.5%;
+      min-width: 1% !important;
+      width: 17%;
+    }
+
+    #logo {
+      width: 90%;
+    }
+  }
 </style>

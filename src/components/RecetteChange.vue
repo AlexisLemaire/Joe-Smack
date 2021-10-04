@@ -5,11 +5,14 @@
     <v-text-field label='Titre' v-model='body.title' required :rules="requiredRules" />
     <v-select label='Type' v-model='body.type' outlined :items="items" required :rules="requiredRules" />
     <v-text-field label='Prix' type='number' v-model='body.prix' required :rules="requiredRules" />
+    <v-text-field label='Temps de préparation (en minutes)' type='number' v-model='body.prepDuration' required :rules="requiredRules" />
+    <v-text-field label='Nombre de personnes' type='number' v-model='body.nbPersonnes' required :rules="requiredRules" />
 
     <v-text-field label='Ingredients' v-model='ingredient' append-icon="mdi-flask-empty-plus-outline" @click:append="setIngredient(ingredient)" />
     <span v-for="(ing,index) in body.ingredients" :key="index"> 
       {{ ing }} <v-icon @click="setIngredient(ing)">mdi-flask-empty-remove-outline</v-icon> 
     </span>
+    <br />
 
     <v-file-input label='Illustration' v-model='body.file' /><br>
 
@@ -18,7 +21,7 @@
 
     <v-btn @click="enregistrer()" :disabled='!isValid'> Ajouter la recette </v-btn>
   </v-form>
-  <v-alert v-if="rep.success !== undefined" text color="green"> La recette a bien été créée </v-alert>
+  <v-alert v-if="rep.success !== undefined" text color="green"> La recette a bien été mise à jour </v-alert>
   <v-alert v-if="rep.error !== undefined" text color="red"> {{ rep.error.message }} </v-alert>
 </div>
 
@@ -51,16 +54,16 @@
       }
     },
 
-    created(){
-        axios.get(`${process.env.VUE_APP_API}/Recettes/SelectOne/${this.$route.params.id}`).then(response => this.body = response.data);
-        console.log(this.body);
+    async created(){
+        this.body = (await axios.get(`${process.env.VUE_APP_API}/Recettes/SelectOne/${this.$route.params.id}`)).data;
     },
 
 	methods: {
-		enregistrer(){
-			if(this.body.ingredients.includes(',')){ this.body.ingredients = this.body.ingredients.split(','); } //INGREDIENTS SPLIT TO ARRAY
-			axios.put(`${process.env.VUE_APP_API}/Recettes/UpdateOne/${this.$route.params.id}`, this.body).then(response => this.rep = response.data); 
-			setTimeout(this.uploadImg,2000); 
+		async enregistrer(){
+			this.rep = (await axios.put(`${process.env.VUE_APP_API}/Recettes/UpdateOne/${this.$route.params.id}`, this.body)).data; 
+      if (this.body.file !== undefined){
+        await this.uploadImg(); 
+      }
 		},
 
     uploadImg(){
@@ -86,7 +89,7 @@
 		background-color: white;
 		border: solid 1px;
 		padding: 5%;
-		border-radius: 20%;
+		border-radius: 10%;
 		text-align: center;
 	}
 
