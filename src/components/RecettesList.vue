@@ -6,7 +6,7 @@
   </div>
   <div v-for="(recette,index) in recettesSelected" :key="index" class="d-flex justify-content-center rc-item">
       <div class="w-100 text-center"> 
-        <v-btn :to="'/recette/'+recette._id"> Recette : {{ recette.title }} </v-btn>
+        <v-btn :to="'/recette/'+recette._id" id="recetteBTN"> Recette : {{ recette.title }} </v-btn>
         <br /><br />
         <img :src="`${API}/img/${recette.imgName}`">
       </div>
@@ -56,8 +56,8 @@
     margin: 1%;
     padding: 3%;
     border: 1px solid;
-    width: 70%;
-    margin-left: 15%;
+    width: 74%;
+    margin-left: 13%;
     height: 400px;
   }
 
@@ -67,6 +67,11 @@
   }
 
   @media screen and (max-width: 960px) {
+    #recetteBTN{
+      font-size: 55%;
+      font-weight: bold;
+    }
+
     .rc-item{
       height: 300px;
     }
