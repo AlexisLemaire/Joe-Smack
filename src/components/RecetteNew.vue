@@ -21,8 +21,9 @@
 
 		<v-btn @click="enregistrer()" :disabled='!isValid'> Ajouter la recette </v-btn>
 	</v-form>
-	<v-alert v-if="rep.success !== undefined" text color="green"> La recette a bien été créée </v-alert>
-	<v-alert v-if="rep.error !== undefined" text color="red"> {{ rep.error.message }} </v-alert>
+	<br />
+	<v-alert v-if="rep && !rep.error" text color="green"> La recette a bien été créée </v-alert>
+	<v-alert v-if="rep && rep.error" text color="red"> {{ rep.error.message }} </v-alert>
 </div>
 </template>
 
@@ -35,21 +36,21 @@
 		VueQuillEditor,
 	},
 
-    data() {
-      return {
-		isValid: false,
-		items: ['entree','plat','patisserie'],
-		ingredient: undefined,
-        body: { ingredients: [] },
-		rep: {},
-		requiredRules: [v => !!v || 'Le champ est requis'],
-		container: [ 
-			['bold', 'italic', 'underline'], 
-			[{'list': 'ordered'}], [{'color': 
-			['red','blue','green','dark','grey','orange','yellow','pink']}] 
-		],
-      }
-    },
+  data() {
+    return {
+      isValid: false,
+      items: ['entree','plat','patisserie'],
+      ingredient: undefined,
+      body: { ingredients: [] },
+      rep: undefined,
+      requiredRules: [v => !!v || 'Le champ est requis'],
+      container: [ 
+        ['bold', 'italic', 'underline'], 
+        [{'list': 'ordered'}], [{'color': 
+        ['red','blue','green','dark','grey','orange','yellow','pink']}] 
+      ],
+    }
+  },
 
 	methods: {
 		enregistrer(){

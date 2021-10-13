@@ -4,7 +4,8 @@
 		<v-text-field label='Clef Secrete' v-model='secretKey' required :rules="requiredRules" />
 		<v-btn @click="enregistrer()" :disabled="!isValid"> Supprimer la recette </v-btn>
 	</v-form>
-	<v-alert v-if="rep.error !== undefined" text color="red"> {{ rep.error.message }} </v-alert>
+	<br />
+	<v-alert v-if="rep && rep.error" text color="red"> {{ rep.error.message }} </v-alert>
 </div>
 </template>
 
@@ -15,7 +16,7 @@
 	data() {
       return {
 		isValid: false,
-		rep: {},
+		rep: undefined,
 		requiredRules: [v => !!v || 'Le champ est requis'],
 		secretKey: ""
       }
