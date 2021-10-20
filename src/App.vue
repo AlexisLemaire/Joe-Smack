@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar app light>
-      <router-link to="/"><img src="https://i.ibb.co/fN1Tdsg/Joe-Smack2.jpg" id="logo"></router-link>
+    <v-app-bar app light class="navBar">
+      <router-link to="/" id="logoCont"><img src="https://i.ibb.co/fN1Tdsg/Joe-Smack2.jpg" id="logo"></router-link>
       <v-btn to="/recettes-list/entree" dark>Entree</v-btn>
       <v-btn to="/recettes-list/plat" dark>Plat</v-btn>
       <v-btn to="/recettes-list/patisserie" dark class="hidden-sm-and-down">Patisserie</v-btn>
@@ -59,12 +59,20 @@ export default {
 <style scoped>
   .v-main{ background-size: 100% 720px; background-repeat: repeat-y; }
   .v-btn{
-    margin-left: 0.4%;
-    width: 19%;
+    margin-left: 0.6%;
+    width: 20%;
   }
   #logo{ 
-    width: 100%; 
-    height: 50px; 
+    width: 110%; 
+    height: 65px; 
+  }
+  #logoCont{
+    margin-right: 0.8%;
+    box-shadow: 3px 3px 3px black;;
+  }
+
+  .navBar{
+    height: 10% !important;
   }
 
   @media screen and (max-width: 660px) {
