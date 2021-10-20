@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <v-app-bar app light class="navBar">
-      <router-link to="/" id="logoCont"><img src="https://i.ibb.co/fN1Tdsg/Joe-Smack2.jpg" id="logo"></router-link>
-      <v-btn to="/recettes-list/entree" dark>Entree</v-btn>
-      <v-btn to="/recettes-list/plat" dark>Plat</v-btn>
-      <v-btn to="/recettes-list/patisserie" dark class="hidden-sm-and-down">Patisserie</v-btn>
-      <v-btn to="/recettes-list/patisserie" dark class="hidden-md-and-up">Pat</v-btn>
-      <v-btn to="/recettes-list/all" dark>A-Z</v-btn>
-      <v-btn to="/recette-create" dark width="1%"><v-icon>mdi-comment-plus-outline</v-icon></v-btn>
+      <router-link to="/"><img src="https://i.ibb.co/fN1Tdsg/Joe-Smack2.jpg" id="logo"></router-link>
+      <v-btn to="/recettes-list/entree">Entree</v-btn>
+      <v-btn to="/recettes-list/plat">Plat</v-btn>
+      <v-btn to="/recettes-list/patisserie" class="hidden-sm-and-down">Patisserie</v-btn>
+      <v-btn to="/recettes-list/patisserie" class="hidden-md-and-up">Pat</v-btn>
+      <v-btn to="/recettes-list/all">A-Z</v-btn>
+      <v-btn to="/recette-create" width="1%"><v-icon>mdi-comment-plus-outline</v-icon></v-btn>
     </v-app-bar>
 
     <v-main id='v-main' :style="bgImage">
@@ -59,20 +59,20 @@ export default {
 <style scoped>
   .v-main{ background-size: 100% 720px; background-repeat: repeat-y; }
   .v-btn{
-    margin-left: 0.6%;
+    margin-left: 0.8%;
     width: 20%;
   }
   #logo{ 
-    width: 110%; 
+    width: 100%; 
     height: 65px; 
-  }
-  #logoCont{
-    margin-right: 0.8%;
     box-shadow: 3px 3px 3px black;;
   }
 
   .navBar{
-    height: 10% !important;
+    padding: 0.2%;
+    height: 80px !important;
+    background-color: aquamarine !important;
+    position: absolute !important;
   }
 
   @media screen and (max-width: 660px) {
@@ -80,10 +80,6 @@ export default {
       margin-left: 0.5%;
       min-width: 1% !important;
       width: 17%;
-    }
-
-    #logo {
-      width: 90%;
     }
   }
 </style>

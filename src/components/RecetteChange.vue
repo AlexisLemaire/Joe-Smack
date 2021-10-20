@@ -88,7 +88,8 @@
 <style scoped>
 	#main{
 		background-color: white;
-		border: solid 1px;
+		border: aquamarine 4px solid;
+    margin-top: 1%;
 		padding: 5%;
 		border-radius: 10%;
 		text-align: center;

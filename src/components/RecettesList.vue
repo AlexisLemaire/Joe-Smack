@@ -1,6 +1,6 @@
 <template>
 <div class="w-100">
-  <div class="bg-white border border-dark p-3 w-100 d-flex justify-content-around">
+  <div class="bg-white my-4 p-3 w-100 d-flex justify-content-around AUTOCOMPLETE">
     <v-autocomplete :items="this.recettes" item-text="title" v-model="recherche"></v-autocomplete>
     <v-btn @click="recherche = ''" class="m-2"><v-icon>mdi-close-circle</v-icon></v-btn>
   </div>
@@ -50,12 +50,16 @@
 </script>
 
 <style scoped>
+  .AUTOCOMPLETE{
+    border: aquamarine 4px solid;
+  }
+
   .rc-item{
     background-color: white;
     border-radius: 20%;
     margin: 1%;
     padding: 3%;
-    border: 1px solid;
+    border: aquamarine 4px solid;
     width: 74%;
     margin-left: 13%;
     height: 400px;

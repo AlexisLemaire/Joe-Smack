@@ -9,6 +9,7 @@ img {
     margin-left: 20%;
     height: 300px;
     margin-top: 10%;
+    border: aquamarine 4px solid;
 }
 
  @media screen and (max-width: 960px) {

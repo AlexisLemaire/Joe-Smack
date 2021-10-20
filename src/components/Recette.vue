@@ -42,7 +42,7 @@
     background-color: white;
     border-radius: 10%;
     padding: 5%;
-    border: 1px solid;
+    border: aquamarine 4px solid;
     width: 94%;
     margin-left: 3%;
     margin-top: 1%;
