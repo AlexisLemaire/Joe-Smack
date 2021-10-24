@@ -53,18 +53,16 @@
   },
 
 	methods: {
-		enregistrer(){
-			axios.post(`${process.env.VUE_APP_API}/Recettes/Create`, this.body).then(response => this.rep = response.data); 
-			setTimeout(this.uploadImg,2000); 
+		async enregistrer(){
+			await (this.body.imgName = this.body.file.name)
+			this.rep = (await axios.post(`${process.env.VUE_APP_API}/Recettes/Create`, this.body)).data; 
+			await this.uploadImg();
 		},
 
 		uploadImg(){
-			//UPLOAD L'IMG SELON LE TITRE DEJA PRESENT EN BDD
 			let formData = new FormData();
 			formData.append('file', this.body.file);
-			formData.append('title', this.body.title);
-			formData.append('secretKey', this.body.secretKey);
-			axios.post(`${process.env.VUE_APP_API}/Recettes/CreateImg`, formData, { headers: { 'Content-Type': 'multipart/form-data'} });
+			axios.post(`${process.env.VUE_APP_API}/Recettes/UploadImg`, formData, { headers: { 'Content-Type': 'multipart/form-data'} });
 		},
 
 		setIngredient(ingredient){

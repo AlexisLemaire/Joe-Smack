@@ -59,29 +59,27 @@
         this.body = (await axios.get(`${process.env.VUE_APP_API}/Recettes/SelectOne/${this.$route.params.id}`)).data;
     },
 
-	methods: {
-		async enregistrer(){
-			this.rep = (await axios.put(`${process.env.VUE_APP_API}/Recettes/UpdateOne/${this.$route.params.id}`, this.body)).data; 
-      if (this.body.file !== undefined){
-        await this.uploadImg(); 
+    methods: {
+      async enregistrer(){
+        await (this.body.imgName = this.body.file.name)
+        this.rep = (await axios.put(`${process.env.VUE_APP_API}/Recettes/UpdateOne/${this.$route.params.id}`, this.body)).data; 
+        if (this.body.file){
+          await this.uploadImg(); 
+        }
+      },
+
+      async uploadImg(){
+        let formData = new FormData();
+        await formData.append('file', this.body.file);
+        await axios.post(`${process.env.VUE_APP_API}/Recettes/UploadImg`, formData, { headers: { 'Content-Type': 'multipart/form-data'} });
+      },
+
+      setIngredient(ingredient){
+        let indexIngredient = this.body.ingredients.indexOf(ingredient);
+        if(indexIngredient === -1){ this.body.ingredients.push(ingredient); }
+        if(indexIngredient !== -1){ this.body.ingredients.splice(indexIngredient, 1); }
       }
-		},
-
-    uploadImg(){
-      let formData = new FormData();
-			formData.append('file', this.body.file);
-			formData.append('title', this.body.title);
-      formData.append('secretKey', this.body.secretKey);
-      axios.post(`${process.env.VUE_APP_API}/Recettes/CreateImg`, formData, { headers: { 'Content-Type': 'multipart/form-data'} });
     },
-
-    setIngredient(ingredient){
-			//SI L'INGREDIENT EST DANS LA LISTE, REMOVE, SINON, PUSH
-			let indexIngredient = this.body.ingredients.indexOf(ingredient);
-			if(indexIngredient === -1){ this.body.ingredients.push(ingredient); }
-			if(indexIngredient !== -1){ this.body.ingredients.splice(indexIngredient, 1); }
-		}
-	},
   }
 </script>
 
