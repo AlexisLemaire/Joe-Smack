@@ -5,7 +5,7 @@
 		<v-btn @click="enregistrer()" :disabled="!isValid"> Supprimer la recette </v-btn>
 	</v-form>
 	<br />
-	<v-alert v-if="rep && rep.error" text color="red"> {{ rep.error.message }} </v-alert>
+	<v-alert v-if="rep && rep.error" text color="red"> {{ rep.error }} </v-alert>
 </div>
 </template>
 

@@ -23,7 +23,7 @@
   </v-form>
   <br />
   <v-alert v-if="rep && !rep.error" text color="green"> La recette a bien été mise à jour </v-alert>
-  <v-alert v-if="rep && rep.error" text color="red"> {{ rep.error.message }} </v-alert>
+  <v-alert v-if="rep && rep.error" text color="red"> {{ rep.error }} </v-alert>
 </div>
 
 </template>
