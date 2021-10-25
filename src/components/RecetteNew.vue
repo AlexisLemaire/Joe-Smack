@@ -54,7 +54,7 @@
 
 	methods: {
 		async enregistrer(){
-			await (this.body.imgName = this.body.file.name)
+			await (this.body.imgName = this.body.file ? this.body.file.name : "")
 			this.rep = (await axios.post(`${process.env.VUE_APP_API}/Recettes/Create`, this.body)).data; 
 			await this.uploadImg();
 		},

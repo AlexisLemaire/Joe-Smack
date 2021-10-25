@@ -61,7 +61,7 @@
 
     methods: {
       async enregistrer(){
-        await (this.body.imgName = this.body.file.name)
+        await (this.body.imgName = this.body.file ? this.body.file.name : this.body.imgName)
         this.rep = (await axios.put(`${process.env.VUE_APP_API}/Recettes/UpdateOne/${this.$route.params.id}`, this.body)).data; 
         if (this.body.file){
           await this.uploadImg(); 
