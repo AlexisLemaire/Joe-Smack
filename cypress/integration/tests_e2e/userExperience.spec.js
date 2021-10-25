@@ -40,7 +40,7 @@ describe("userExperience", () => {
         cy.get("input").eq(6).type(0);
         cy.get("input").eq(7).type("FakeIngredients");
         cy.get("form button").contains("Ajouter");
-        cy.get("form button").eq(20).click();
+        cy.get("form button").eq(19).click();
         cy.get(".v-alert");
     });
 });
