@@ -58,6 +58,7 @@ export default {
 
 <style scoped>
   .v-main{ background-size: 100% 720px; background-repeat: repeat-y; }
+  .v-main div { margin-top: 1%; margin-bottom: 1%; }
   .v-btn{
     margin-left: 0.8%;
     width: 20%;
@@ -69,17 +70,24 @@ export default {
   }
 
   .navBar{
-    padding: 0.2%;
-    height: 80px !important;
+    padding: 0.5%;
+    height: 12% !important;
     background-color: aquamarine !important;
-    position: absolute !important;
   }
 
   @media screen and (max-width: 660px) {
     .v-btn{
-      margin-left: 0.5%;
+      margin-left: 1.5%;
       min-width: 1% !important;
       width: 17%;
+    }
+
+    #logo {
+      height: 50px;
+    }
+
+    .navBar {
+      height: 11% !important;
     }
   }
 </style>
