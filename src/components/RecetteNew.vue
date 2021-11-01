@@ -1,5 +1,9 @@
 <template>
 <div id="main">
+	<h1 class="h3 mb-3 font-weight-normal">Ajouter une recette</h1>
+	<strong>
+		Vous pouvez ajouter une nouvelle recette via cette page. La recette ne sera ajoutée que si vous possedez la bonne clef secrète.
+	</strong> <br /><br />
 	<v-form v-model="isValid" dark>
 		<v-text-field label='Clef Secrete' v-model='body.secretKey' required :rules="requiredRules" />
 		<v-text-field label='Titre' v-model='body.title' required :rules="requiredRules" />

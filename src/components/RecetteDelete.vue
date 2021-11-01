@@ -1,5 +1,9 @@
 <template>
 <div id="main">
+	<h1 class="h3 mb-3 font-weight-normal">Supprimer la recette : <strong>{{ recette.title }}</strong></h1>
+	<strong>
+		Vous pouvez ajouter supprimer la recette selectionnée via cette page. La recette ne sera supprimée que si vous possedez la bonne clef secrète.
+	</strong> <br /><br />
 	<v-form v-model="isValid" dark>
 		<v-text-field label='Clef Secrete' v-model='secretKey' required :rules="requiredRules" />
 		<v-btn @click="enregistrer()" :disabled="!isValid"> Supprimer la recette </v-btn>
@@ -11,16 +15,20 @@
 
 <script>
   import axios from 'axios';
- 
   export default {
 	data() {
       return {
 		isValid: false,
 		rep: undefined,
 		requiredRules: [v => !!v || 'Le champ est requis'],
-		secretKey: ""
+		secretKey: "",
+		recette: {}
       }
     },
+
+	async created(){
+		this.recette = (await axios.get(`${process.env.VUE_APP_API}/Recettes/SelectOne/${this.$route.params.id}`)).data;
+	},
 
 	methods: {
 		async enregistrer(){
