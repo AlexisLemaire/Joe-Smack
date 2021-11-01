@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style scoped>
-  .v-main{ background-size: 100% 720px; background-repeat: repeat-y; }
+  .v-main{ background-size: 100% 100%; background-repeat: repeat-y; }
   .v-main div { margin-top: 1%; margin-bottom: 1%; }
   .v-btn{
     margin-left: 0.8%;
